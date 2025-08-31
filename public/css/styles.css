@@ -1,0 +1,5 @@
+:root{--bg:#0e0f14;--text:#e7ebfb;--border:#23324a;--accent:#7aa2ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto}
+.container{max-width:960px;margin:0 auto;padding:16px}
+.card{border:1px solid var(--border);border-radius:16px;padding:16px;margin:16px 0}
+.button{display:inline-block;border:1px solid var(--accent);padding:10px 14px;border-radius:12px;color:var(--text);text-decoration:none}
