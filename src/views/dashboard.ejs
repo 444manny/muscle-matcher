@@ -1,17 +1,21 @@
 <section class="card">
   <h1>Your workouts</h1>
+
   <form id="create-workout" class="grid">
     <label>Name <input id="wname" required></label>
     <label>Notes <input id="wnotes"></label>
-    <details><summary>Add items (exercise id, sets, reps, weight)</summary>
+
+    <details><summary>Add items (exercise name, sets, reps, weight)</summary>
       <div class="grid">
-        <input id="exId" type="number" placeholder="Exercise ID">
-        <input id="exSets" type="number" placeholder="Sets" value="3">
-        <input id="exReps" type="number" placeholder="Reps" value="10">
-        <input id="exWeight" type="number" step="0.5" placeholder="Weight">
+        <input id="exName"  type="text"  placeholder="Exercise name (e.g., Biceps Curl)">
+        <input id="exSets"  type="number" value="3">
+        <input id="exReps"  type="number" value="10">
+        <input id="exWeight" type="number" step="0.5">
       </div>
     </details>
-    <button class="button" type="submit">Create workout</button>
+
+    <button class="button" type="submit" id="create-btn">Create workout</button>
   </form>
+
   <ul id="workouts" class="list"></ul>
 </section>
