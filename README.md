@@ -7,11 +7,11 @@ Full version with:
 - External API proxy to wger 
 - Security: Helmet, CSRF for forms, bcrypt hashing, validation via Joi
 
-## Quick start
+## Quick start- run this inside project directory(submissions folder)
 ```bash
 npm install
 cp .env.example .env   # no need really
-npm run dev            # or u could npm start
+npm run dev            # / npm start
 # http://localhost:3000
 #any issues try npm restart
 ```
