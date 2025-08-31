@@ -1,6 +1,16 @@
-# Muscle Match
+# Muscle Match (Final+)
 
-Initial scaffold and planning notes.
+Full version with:
+- Search exercises by muscle (SQLite)
+- User accounts (register/login/logout)
+- Personal workouts CRUD (add exercises with sets/reps/weight)
+- External API proxy to wger (`/api/external/wger?muscle=Chest`)
+- Security: Helmet, CSRF for forms, bcrypt hashing, validation via Joi
 
-
-Final functional version with auth, CRUD, filters, etc.
+## Quick start
+```bash
+npm install
+cp .env.example .env   # optional
+npm run dev            # or: npm start
+# http://localhost:3000
+```

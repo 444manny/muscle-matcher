@@ -1,5 +1,25 @@
-INSERT OR IGNORE INTO muscles(name) VALUES ('Chest'),('Back'),('Biceps'),('Triceps'),('Shoulders'),('Quadriceps'),('Hamstrings'),('Calves'),('Abs'),('Glutes');
-INSERT INTO exercises(name,muscle_id,equipment,difficulty,description) VALUES
- ('Push-Up',(SELECT id FROM muscles WHERE name='Chest'),'Bodyweight','Beginner','Classic push-up'),
- ('Pull-Up',(SELECT id FROM muscles WHERE name='Back'),'Bodyweight','Intermediate','Pull-up for lats'),
- ('Biceps Curl',(SELECT id FROM muscles WHERE name='Biceps'),'Dumbbell','Beginner','Dumbbell curl');
+INSERT INTO muscles (name) VALUES
+('Chest'),('Back'),('Biceps'),('Triceps'),('Shoulders'),('Quadriceps'),('Hamstrings'),('Calves'),('Abs'),('Glutes');
+INSERT INTO exercises (name, muscle_id, equipment, difficulty, description) VALUES
+('Push-Up', (SELECT id FROM muscles WHERE name='Chest'), 'Bodyweight', 'Beginner', 'Classic push-up focusing on pectorals and triceps.'),
+('Bench Press', (SELECT id FROM muscles WHERE name='Chest'), 'Barbell', 'Intermediate', 'Flat barbell bench press.'),
+('Incline Dumbbell Press', (SELECT id FROM muscles WHERE name='Chest'), 'Dumbbell', 'Intermediate', 'Targets upper chest.'),
+('Pull-Up', (SELECT id FROM muscles WHERE name='Back'), 'Bodyweight', 'Intermediate', 'Vertical pull emphasizing lats.'),
+('Barbell Row', (SELECT id FROM muscles WHERE name='Back'), 'Barbell', 'Intermediate', 'Bent-over row for mid-back.'),
+('Lat Pulldown', (SELECT id FROM muscles WHERE name='Back'), 'Machine', 'Beginner', 'Machine alternative to pull-ups.'),
+('Biceps Curl', (SELECT id FROM muscles WHERE name='Biceps'), 'Dumbbell', 'Beginner', 'Standing dumbbell curls.'),
+('Hammer Curl', (SELECT id FROM muscles WHERE name='Biceps'), 'Dumbbell', 'Beginner', 'Neutral grip curl.'),
+('Triceps Pushdown', (SELECT id FROM muscles WHERE name='Triceps'), 'Machine', 'Beginner', 'Cable pushdown.'),
+('Close-Grip Bench Press', (SELECT id FROM muscles WHERE name='Triceps'), 'Barbell', 'Intermediate', 'Emphasizes triceps.'),
+('Overhead Press', (SELECT id FROM muscles WHERE name='Shoulders'), 'Barbell', 'Intermediate', 'Standing OHP.'),
+('Lateral Raise', (SELECT id FROM muscles WHERE name='Shoulders'), 'Dumbbell', 'Beginner', 'Side deltoid isolation.'),
+('Back Squat', (SELECT id FROM muscles WHERE name='Quadriceps'), 'Barbell', 'Intermediate', 'Compound quad-dominant squat.'),
+('Leg Press', (SELECT id FROM muscles WHERE name='Quadriceps'), 'Machine', 'Beginner', 'Machine-based leg press.'),
+('Romanian Deadlift', (SELECT id FROM muscles WHERE name='Hamstrings'), 'Barbell', 'Intermediate', 'Hip hinge focusing on hamstrings.'),
+('Leg Curl', (SELECT id FROM muscles WHERE name='Hamstrings'), 'Machine', 'Beginner', 'Hamstring curl machine.'),
+('Standing Calf Raise', (SELECT id FROM muscles WHERE name='Calves'), 'Machine', 'Beginner', 'Gastrocnemius emphasis.'),
+('Seated Calf Raise', (SELECT id FROM muscles WHERE name='Calves'), 'Machine', 'Beginner', 'Soleus emphasis.'),
+('Plank', (SELECT id FROM muscles WHERE name='Abs'), 'Bodyweight', 'Beginner', 'Core stability exercise.'),
+('Cable Crunch', (SELECT id FROM muscles WHERE name='Abs'), 'Machine', 'Beginner', 'Loaded spinal flexion.'),
+('Hip Thrust', (SELECT id FROM muscles WHERE name='Glutes'), 'Barbell', 'Intermediate', 'Glute-dominant hip extension.'),
+('Glute Bridge', (SELECT id FROM muscles WHERE name='Glutes'), 'Bodyweight', 'Beginner', 'Bodyweight bridge.');

@@ -1,0 +1,10 @@
+const express = require('express');
+const { searchExercises, requireAuthJson, listWorkouts, createWorkout, updateWorkout, deleteWorkout, proxyWger } = require('../controllers/api');
+const router = express.Router();
+router.get('/exercises', searchExercises);
+router.get('/external/wger', proxyWger);
+router.get('/workouts', requireAuthJson, listWorkouts);
+router.post('/workouts', requireAuthJson, createWorkout);
+router.put('/workouts/:id', requireAuthJson, updateWorkout);
+router.delete('/workouts/:id', requireAuthJson, deleteWorkout);
+module.exports = router;

@@ -1,19 +1,28 @@
-<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Search • Muscle Match</title><link rel="stylesheet" href="/css/styles.css"/></head><body>
-<main class="container card">
-  <h1>Search</h1>
-  <form method="get" class="card">
-    <input name="q" value="<%= q %>" placeholder="Keyword (e.g. press, curl)"/>
-    <select name="muscle"><option value="">Any muscle</option>
-      <% ['Chest','Back','Biceps','Triceps','Shoulders','Quadriceps','Hamstrings','Calves','Abs','Glutes'].forEach(m=>{ %>
-        <option <%= muscle===m?'selected':'' %>><%= m %></option>
-      <% }) %>
-    </select>
+<section class="card">
+  <h1>Search exercises</h1>
+  <form id="search-form" class="grid">
+    <label>Muscle
+      <select id="muscle">
+        <option value="">Any</option>
+        <option>Chest</option><option>Back</option><option>Biceps</option><option>Triceps</option><option>Shoulders</option>
+        <option>Quadriceps</option><option>Hamstrings</option><option>Calves</option><option>Abs</option><option>Glutes</option>
+      </select>
+    </label>
+    <label>Equipment
+      <select id="equipment">
+        <option value="">Any</option>
+        <option>Barbell</option><option>Dumbbell</option><option>Machine</option><option>Bodyweight</option><option>Band</option><option>Kettlebell</option>
+      </select>
+    </label>
+    <label>Difficulty
+      <select id="difficulty">
+        <option value="">Any</option>
+        <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+      </select>
+    </label>
+    <label>Keyword <input id="q" type="text" placeholder="e.g. press, curl"></label>
     <button class="button" type="submit">Search</button>
+    <button class="button ghost" type="button" id="fetch-wger">Fetch from wger</button>
   </form>
-  <ul class="card">
-    <% rows.forEach(r=>{ %>
-      <li><strong><%= r.name %></strong> — <em><%= r.muscle %></em> · <%= r.equipment %> · <%= r.difficulty %></li>
-    <% }) %>
-  </ul>
-</main></body></html>
+  <ul id="results" class="list"></ul>
+</section>

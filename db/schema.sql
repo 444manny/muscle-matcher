@@ -1,3 +1,35 @@
-PRAGMA foreign_keys=ON;
-CREATE TABLE IF NOT EXISTS muscles(id INTEGER PRIMARY KEY, name TEXT UNIQUE NOT NULL);
-CREATE TABLE IF NOT EXISTS exercises(id INTEGER PRIMARY KEY, name TEXT NOT NULL, muscle_id INTEGER NOT NULL, equipment TEXT, difficulty TEXT, description TEXT, FOREIGN KEY(muscle_id) REFERENCES muscles(id));
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE TABLE IF NOT EXISTS muscles (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE
+);
+CREATE TABLE IF NOT EXISTS exercises (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  muscle_id INTEGER NOT NULL REFERENCES muscles(id) ON DELETE CASCADE,
+  equipment TEXT NOT NULL DEFAULT 'Bodyweight',
+  difficulty TEXT NOT NULL DEFAULT 'Beginner',
+  description TEXT NOT NULL DEFAULT ''
+);
+CREATE TABLE IF NOT EXISTS workouts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  notes TEXT NOT NULL DEFAULT '',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE TABLE IF NOT EXISTS workout_exercises (
+  workout_id INTEGER NOT NULL REFERENCES workouts(id) ON DELETE CASCADE,
+  exercise_id INTEGER NOT NULL REFERENCES exercises(id),
+  sets INTEGER NOT NULL DEFAULT 3,
+  reps INTEGER NOT NULL DEFAULT 10,
+  weight REAL NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS idx_exercises_muscle ON exercises(muscle_id);
