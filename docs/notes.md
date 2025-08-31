@@ -1,0 +1,3 @@
+- Goal: Find workouts by muscle
+- Pages: Home, Search, Login/Register, Dashboard
+- Tech: Node (Express), SQLite, server-rendered EJS
