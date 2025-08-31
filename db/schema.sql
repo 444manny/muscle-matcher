@@ -1,0 +1,3 @@
+PRAGMA foreign_keys=ON;
+CREATE TABLE IF NOT EXISTS muscles(id INTEGER PRIMARY KEY, name TEXT UNIQUE NOT NULL);
+CREATE TABLE IF NOT EXISTS exercises(id INTEGER PRIMARY KEY, name TEXT NOT NULL, muscle_id INTEGER NOT NULL, equipment TEXT, difficulty TEXT, description TEXT, FOREIGN KEY(muscle_id) REFERENCES muscles(id));

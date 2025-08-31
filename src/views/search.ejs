@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Search • Muscle Match</title><link rel="stylesheet" href="/css/styles.css"/></head><body>
+<main class="container card">
+  <h1>Search</h1>
+  <form method="get" class="card">
+    <input name="q" value="<%= q %>" placeholder="Keyword (e.g. press, curl)"/>
+    <select name="muscle"><option value="">Any muscle</option>
+      <% ['Chest','Back','Biceps','Triceps','Shoulders','Quadriceps','Hamstrings','Calves','Abs','Glutes'].forEach(m=>{ %>
+        <option <%= muscle===m?'selected':'' %>><%= m %></option>
+      <% }) %>
+    </select>
+    <button class="button" type="submit">Search</button>
+  </form>
+  <ul class="card">
+    <% rows.forEach(r=>{ %>
+      <li><strong><%= r.name %></strong> — <em><%= r.muscle %></em> · <%= r.equipment %> · <%= r.difficulty %></li>
+    <% }) %>
+  </ul>
+</main></body></html>
